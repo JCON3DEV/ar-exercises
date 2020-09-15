@@ -35,7 +35,8 @@ yaletown.save()
 @mens_stores.each do |mens_clothing_store|
   puts mens_clothing_store.name
 end
-@womens_stores = Store.where("womens_apparel = true AND annual_revenue < 1000000")
+# @womens_stores = Store.where("womens_apparel = true AND annual_revenue < 1000000")
+@womens_stores = Store.where(womens_apparel: true).where('annual_revenue < ?', 1000000)
 @womens_stores.each do |womens_clothing_store|
 puts womens_clothing_store.name
 end
